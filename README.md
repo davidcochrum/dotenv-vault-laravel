@@ -1,8 +1,8 @@
 # Laravel dotenv-vault
 
 ![latest release](https://gitlab.com/davidcochrum/dotenv-vault-laravel/-/badges/release.svg)
-![pipeline status](https://gitlab.com/%{project_path}/badges/%{commit_sha}/pipeline.svg)
-![coverage](https://gitlab.com/%{project_path}/badges/%{commit_sha}/coverage.svg)
+![pipeline status](https://gitlab.com/davidcochrum/dotenv-vault-laravel/badges/main/pipeline.svg)
+![coverage](https://gitlab.com/davidcochrum/dotenv-vault-laravel/badges/main/coverage.svg)
 
 <img src="/dotenv-laravel.png" alt="dotenv-vault-laravel" style="display:block; float: right;" width="200" />
 
