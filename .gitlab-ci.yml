@@ -1,0 +1,34 @@
+stages:
+  - test
+
+.test-base:
+  stage: test
+  image: webdevops/php-dev:${PHP_VERSION}-alpine
+  script:
+    - composer install --no-plugins
+    - vendor/bin/phpunit --coverage-text --coverage-cobertura=coverage.cobertura.xml
+  artifacts:
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage.cobertura-${PHP_VERSION}.xml
+
+test 8.2:
+  extends: .test-base
+  variables:
+    PHP_VERSION: "8.2"
+
+test 8.0:
+  extends: .test-base
+  variables:
+    PHP_VERSION: "8.0"
+
+test 7.4:
+  extends: .test-base
+  variables:
+    PHP_VERSION: "7.4"
+
+test 7.3:
+  extends: .test-base
+  variables:
+    PHP_VERSION: "7.3"
