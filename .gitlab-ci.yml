@@ -6,7 +6,7 @@ stages:
   image: webdevops/php-dev:${PHP_VERSION}-alpine
   script:
     - composer install --no-plugins
-    - vendor/bin/phpunit --coverage-text --coverage-cobertura=coverage.cobertura.xml
+    - vendor/bin/phpunit --coverage-text --coverage-cobertura=coverage.cobertura-${PHP_VERSION}.xml
   artifacts:
     reports:
       coverage_report:
