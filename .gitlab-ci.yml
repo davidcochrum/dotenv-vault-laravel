@@ -4,6 +4,8 @@ stages:
 .test-base:
   stage: test
   image: webdevops/php-dev:${PHP_VERSION}-alpine
+  variables:
+    XDEBUG_MODE: coverage
   script:
     - composer install --no-plugins
     - vendor/bin/phpunit --coverage-text --coverage-cobertura=coverage.cobertura-${PHP_VERSION}.xml
