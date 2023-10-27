@@ -8,12 +8,13 @@ stages:
     XDEBUG_MODE: coverage
   script:
     - composer install --no-plugins
-    - vendor/bin/phpunit --coverage-text --coverage-cobertura=coverage.cobertura-${PHP_VERSION}.xml
+    - vendor/bin/phpunit --log-junit phpunit-report-${PHP_VERSION}.xml --coverage-cobertura phpunit-coverage-${PHP_VERSION}.xml --coverage-text --colors=never
   artifacts:
     reports:
+      junit: phpunit-report-${PHP_VERSION}.xml
       coverage_report:
         coverage_format: cobertura
-        path: coverage.cobertura-${PHP_VERSION}.xml
+        path: phpunit-coverage-${PHP_VERSION}.xml
 
 test 8.2:
   extends: .test-base
