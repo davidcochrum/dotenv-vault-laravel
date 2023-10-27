@@ -1,0 +1,68 @@
+{
+    "name": "davidcochrum/dotenv-vault-laravel",
+    "description": "Laravel package to load environment variables from encrypted .env.vault files",
+    "keywords": [
+        "configurations",
+        "dotenv",
+        "dotenv-vault",
+        "env",
+        "environment",
+        "environment variables",
+        "laravel",
+        "laravel-dotenv"
+    ],
+    "homepage": "https://github.com/davidcochrum/dotenv-vault-laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Cochrum",
+            "email": "david@chrum.me",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0|^7.1.3",
+        "dotenv-org/phpdotenv-vault": "^0.1.3",
+        "illuminate/support": "^10.0|^9.0|^8.0|^7.0|^6.0|^5.8"
+    },
+    "require-dev": {
+        "captainhook/captainhook": "^5.18",
+        "captainhook/plugin-composer": "^5.3",
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "autoload": {
+        "psr-4": {
+            "DotenvVault\\Laravel\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DotenvVault\\Laravel\\Tests\\": "tests"
+        }
+    },
+    "repositories": [
+        {
+            "type": "github",
+            "url": "https://github.com/davidcochrum/phpdotenv-vault"
+        }
+    ],
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "captainhook/plugin-composer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DotenvVault\\Laravel\\DotenvVaultServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
