@@ -1,6 +1,6 @@
 # Laravel dotenv-vault
 
-<img src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.svg" alt="dotenv-vault" style="text-align: right; width: 200px" />
+<img src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.svg" alt="dotenv-vault" style="text-align: right;" width="200" />
 
 A Laravel package which extends the proven & trusted foundation of [phpdotenv](https://github.com/vlucas/phpdotenv), with a `.env.vault` file.
 
