@@ -8,7 +8,10 @@ stages:
     XDEBUG_MODE: coverage
   script:
     - composer install --no-plugins
-    - vendor/bin/phpunit --coverage-text --colors=never
+    - vendor/bin/phpunit --colors=never --coverage-text --coverage-xml=coverage-${PHP_VERSION}.xml
+  artifacts:
+    reports:
+      junit: coverage-${PHP_VERSION}.xml
 
 test 8.2:
   extends: .test-base
