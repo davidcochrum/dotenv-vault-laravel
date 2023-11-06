@@ -4,7 +4,7 @@ namespace DotenvVault\Laravel;
 
 use Dotenv\Dotenv;
 use Dotenv\Exception\InvalidPathException;
-use DotenvVault\DotEnvVault;
+use DotenvVault\DotenvVault;
 use Illuminate\Config\Repository;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Log\Logger;
@@ -26,7 +26,7 @@ class DotenvVaultServiceProvider extends ServiceProvider
 
             $vaultName = $config->get('dotenv-vault.vault_name', '.env.vault');
             try {
-                DotEnvVault::createImmutable($paths, $vaultName)->load();
+                DotenvVault::createImmutable($paths, $vaultName)->load();
             } catch (InvalidPathException $error) {
                 $log->warning("Unable to decrypt DotEnv Vault: {$vaultName}");
                 $log->warning("  because: {$error->getMessage()}");
