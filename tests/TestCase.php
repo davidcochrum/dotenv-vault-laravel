@@ -20,8 +20,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     protected function defineEnvironment($app)
     {
         tap($app['config'], function (Repository $config) use ($app) {
-            print_r($config->get('dotenv-vault'));
-            print_r($config->get('dotenv_vault'));
             $defaults = require __DIR__ . '/../config/dotenv-vault.php';
             $this->assertSame([
                 'path' => $this->getBasePath(),
