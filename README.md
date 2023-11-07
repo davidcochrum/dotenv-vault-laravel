@@ -61,7 +61,7 @@ echo $s3_bucket;
 
 ## 🔧 Custom Config
 
-Should you need to customize the path where you store your `.env.vault` or its filename, publish the package
+Should you need to customize the path where you store your `.env.vault`, publish the package
 configuration file and update the settings as desired:
 
 ```shell

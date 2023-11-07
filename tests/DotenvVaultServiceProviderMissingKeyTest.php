@@ -10,10 +10,6 @@ class DotenvVaultServiceProviderMissingKeyTest extends TestCase
         return __DIR__ . '/fixtures/missing_key';
     }
 
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
     public function test(): void
     {
         $this->assertEmpty(env('DOTENV_KEY'));

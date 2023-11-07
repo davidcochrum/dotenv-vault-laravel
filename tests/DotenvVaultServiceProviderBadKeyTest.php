@@ -2,13 +2,13 @@
 
 namespace DotenvVault\Laravel\Tests;
 
-use DotenvVault\DotEnvVaultError;
+use Exception;
 
 /** @covers \DotenvVault\Laravel\DotenvVaultServiceProvider */
 class DotenvVaultServiceProviderBadKeyTest extends TestCase
 {
-    /** @var DotEnvVaultError|null */
-    private $exception = null;
+    /** @var Exception|null */
+    private $exception;
 
     protected function getFixturePath()
     {
@@ -18,18 +18,15 @@ class DotenvVaultServiceProviderBadKeyTest extends TestCase
     protected function setUp(): void
     {
         try {
+            $this->exception = null;
             parent::setUp();
-        } catch (DotEnvVaultError $e) {
+        } catch (Exception $e) {
             $this->exception = $e;
         }
     }
 
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
     public function test(): void
     {
-        $this->assertEquals(new DotEnvVaultError('INVALID_DOTENV_KEY: Key must be valid.'), $this->exception);
+        $this->assertEquals(new Exception('DECRYPTION_FAILED: Please check your DOTENV_KEY'), $this->exception);
     }
 }
