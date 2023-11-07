@@ -15,10 +15,6 @@ class DotenvVaultServiceProviderCustomTest extends TestCase
         return 'custom_key.env';
     }
 
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
     public function test(): void
     {
         $this->assertSame('dotenv://:key_bf574d88b096bd072611330394f3e37e778a1724074efe4e92b7c9a49ad4017a@dotenv.local/vault/.env.vault?environment=development', env('DOTENV_KEY'));

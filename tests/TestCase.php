@@ -4,9 +4,12 @@ namespace DotenvVault\Laravel\Tests;
 
 use DotenvVault\Laravel\DotenvVaultServiceProvider;
 use Illuminate\Config\Repository;
+use phpmock\phpunit\PHPMock;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
+    use PHPMock;
+
     public $enablesPackageDiscoveries = true;
     public $loadEnvironmentVariables = false;
 
@@ -17,15 +20,12 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         ];
     }
 
-    protected function setUp(): void
-    {
-        $this->app = null;
-        parent::setUp();
-    }
-
     protected function defineEnvironment($app)
     {
         tap($app['config'], function (Repository $config) use ($app) {
+            $error_log = $this->getFunctionMock('DotenvVault', 'error_log');
+            $error_log->expects($this->any());
+
             $defaults = require __DIR__ . '/../config/dotenv-vault.php';
             $this->assertSame([
                 'path' => $this->getBasePath(),

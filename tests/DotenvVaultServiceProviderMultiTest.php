@@ -10,10 +10,6 @@ class DotenvVaultServiceProviderMultiTest extends TestCase
         return [__DIR__ . '/fixtures/multi/two', __DIR__ . '/fixtures/multi/one'];
     }
 
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
     public function test(): void
     {
         $this->assertSame('dotenv://:key_e3405d44ee2213b42a7e393881e06588d84f06474923e5a11ffe4db282bf25bf@dotenv.local/vault/.env.vault?environment=production', env('DOTENV_KEY'));

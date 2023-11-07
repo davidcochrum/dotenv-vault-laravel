@@ -8,7 +8,7 @@ use Exception;
 class DotenvVaultServiceProviderBadKeyTest extends TestCase
 {
     /** @var Exception|null */
-    private $exception = null;
+    private $exception;
 
     protected function getFixturePath()
     {
@@ -18,16 +18,13 @@ class DotenvVaultServiceProviderBadKeyTest extends TestCase
     protected function setUp(): void
     {
         try {
+            $this->exception = null;
             parent::setUp();
         } catch (Exception $e) {
             $this->exception = $e;
         }
     }
 
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
     public function test(): void
     {
         $this->assertEquals(new Exception('DECRYPTION_FAILED: Please check your DOTENV_KEY'), $this->exception);
