@@ -30,6 +30,6 @@ class DotenvVaultServiceProviderBadKeyTest extends TestCase
      */
     public function test(): void
     {
-        $this->assertEquals(new Exception('INVALID_DOTENV_KEY: Key must be valid.'), $this->exception);
+        $this->assertEquals(new Exception('DECRYPTION_FAILED: Please check your DOTENV_KEY'), $this->exception);
     }
 }

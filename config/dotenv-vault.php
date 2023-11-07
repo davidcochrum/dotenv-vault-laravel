@@ -13,18 +13,6 @@ return [
     */
     'path' => base_path(),
 
-    /*
-    |--------------------------------------------------------------------------
-    | DotEnv Vault Name
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify the name of your .env.vault file if you're using a
-    | different filename. Learn more about the vault file from:
-    | https://www.dotenv.org/docs/security/env-vault
-    |
-    */
-    'vault_name' => '.env.vault',
-
 
     /*
     |--------------------------------------------------------------------------

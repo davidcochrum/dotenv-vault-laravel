@@ -3,11 +3,12 @@
 namespace DotenvVault\Laravel\Tests;
 
 use Exception;
+use Throwable;
 
 /** @covers \DotenvVault\Laravel\DotenvVaultServiceProvider */
 class DotenvVaultServiceProviderBadVaultTest extends TestCase
 {
-    /** @var Exception|null */
+    /** @var Throwable|null */
     private $exception = null;
 
     protected function getFixturePath()
@@ -19,17 +20,17 @@ class DotenvVaultServiceProviderBadVaultTest extends TestCase
     {
         try {
             parent::setUp();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $this->exception = $e;
         }
     }
 
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
     public function test(): void
     {
-        $this->assertEquals(new Exception('INVALID_DOTENV_KEY: Key must be valid.'), $this->exception);
+        $this->assertInstanceOf(Throwable::class, $this->exception);
+        $this->assertStringContainsString('openssl_decrypt()', $this->exception->getMessage());
+        $this->assertSame('dotenv://:key_e3405d44ee2213b42a7e393881e06588d84f06474923e5a11ffe4db282bf25bf@dotenv.local/vault/.env.vault?environment=production', env('DOTENV_KEY'));
+        $this->assertEmpty(env('APP_ENV'));
+        $this->assertEmpty(env('APP_KEY'));
     }
 }
