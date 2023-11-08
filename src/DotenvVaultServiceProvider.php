@@ -24,7 +24,7 @@ class DotenvVaultServiceProvider extends ServiceProvider
             Dotenv::createImmutable($paths, $keyName)->safeLoad();
 
             $vaultName = $config->get('dotenv-vault.vault_name', '.env.vault');
-            DotenvVault::createImmutable($paths, $vaultName)->load();
+            DotenvVault::createImmutable($paths, $vaultName)->safeLoad();
         });
     }
 
